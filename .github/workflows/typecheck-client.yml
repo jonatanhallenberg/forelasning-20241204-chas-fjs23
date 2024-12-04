@@ -1,0 +1,33 @@
+name: Typecheck Client
+
+on:
+  pull_request: # Kör på pull requests
+    branches:
+      - main # Specificera vilka branches du vill kontrollera
+  push:
+    branches:
+      - main # Kör även när någon pushar direkt till main
+
+jobs:
+  typecheck:
+    name: Run TypeScript Typecheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Anpassa Node.js-versionen efter ditt projekt
+
+      - name: Install dependencies
+        run: |
+          cd reseplanerare/client
+          npm install
+
+      - name: Run TypeScript typecheck
+        run: |
+          cd reseplanerare/client
+          npm run typecheck # Kör typecheck-skriptet
