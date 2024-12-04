@@ -22,7 +22,7 @@ export const TravelPlanner = () => {
   return (
     <Card className="w-full max-w-3xl mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center text-red-400">
+        <CardTitle className="text-2xl font-bold text-center text-red-200">
           Bästtrafik Stockholm
         </CardTitle>
       </CardHeader>
