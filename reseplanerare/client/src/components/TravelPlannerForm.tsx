@@ -82,7 +82,7 @@ export const TravelPlannerForm: React.FC<TravelPlannerFormProps> = ({
       </div>
       <Button
         data-testId="searchButton"
-        className="w-full bg-green-600"
+        className="w-full bg-blue-500"
         onClick={() => onSearch(fromGid, toGid)}
       >
         <Search className="mr-2 h-4 w-4" /> Sök resa
