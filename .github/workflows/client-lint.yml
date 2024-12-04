@@ -1,0 +1,36 @@
+name: Client Lint
+
+# Client Lint / Run ESLint for client (pull_request)
+on:
+  push:
+    paths:
+      - "reseplanerare/client/**"
+  pull_request:
+    paths:
+      - "reseplanerare/client/**"
+
+jobs:
+  lint:
+    name: Run ESLint for client
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: reseplanerare/client
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: reseplanerare/client/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
